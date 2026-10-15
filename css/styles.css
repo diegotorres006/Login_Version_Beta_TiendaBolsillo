@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --tb-red-primary: #e53935;
+  --tb-red-hover: #d32f2f;
+  --tb-red-light: #fef2f2;
+  --tb-red-border: #fecaca;
+  --tb-green-emerald: #059669;
+  --tb-green-light: #ecfdf5;
+  --tb-green-border: #a7f3d0;
+  --tb-dark-slate: #1e293b;
+  --tb-muted-gray: #64748b;
+  --tb-border-subtle: #e2e8f0;
+  --tb-bg-canvas: #f8fafc;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--tb-dark-slate);
+  background-color: var(--tb-bg-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Transiciones suaves entre vistas */
+.view-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.view-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Inputs estilizados fieles al diseño pero adaptados a Web */
+.tb-input-group {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.tb-input-field {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.85rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid #e2e8f0;
+  background-color: #ffffff;
+  font-size: 0.95rem;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.tb-input-field:focus {
+  border-color: var(--tb-red-primary);
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.12);
+  background-color: #ffffff;
+}
+
+.tb-input-field.input-error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.tb-input-icon {
+  position: absolute;
+  left: 0.95rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.tb-input-group:focus-within .tb-input-icon {
+  color: var(--tb-red-primary);
+}
+
+.tb-input-action {
+  position: absolute;
+  right: 0.95rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease;
+}
+
+.tb-input-action:hover {
+  color: var(--tb-dark-slate);
+}
+
+/* Tarjetas seleccionables de rol */
+.role-card {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.role-card:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
+}
+
+.role-card:active {
+  transform: translateY(0);
+}
+
+.role-card.selected {
+  border-color: var(--tb-red-primary);
+  background: linear-gradient(to right, #fff9f9, #ffffff);
+  box-shadow: 0 4px 14px 0 rgba(229, 57, 53, 0.12);
+}
+
+/* Insignias de sección (como en la app Android) */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--tb-green-light);
+  color: var(--tb-green-emerald);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid var(--tb-green-border);
+}
+
+/* Botones Primarios */
+.tb-btn-primary {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.75rem;
+  background-color: var(--tb-red-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(229, 57, 53, 0.25);
+}
+
+.tb-btn-primary:hover:not(:disabled) {
+  background-color: var(--tb-red-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(229, 57, 53, 0.32);
+}
+
+.tb-btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.tb-btn-primary:disabled {
+  background-color: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Botón de marcar mapa */
+.tb-btn-map {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border-radius: 0.75rem;
+  background-color: var(--tb-red-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.2);
+}
+
+.tb-btn-map:hover {
+  background-color: var(--tb-red-hover);
+}
+
+/* Barra lateral interactiva del split-screen */
+.showcase-gradient {
+  background: radial-gradient(circle at 10% 20%, rgba(229, 57, 53, 0.08) 0%, rgba(255, 255, 255, 0) 50%),
+              radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.06) 0%, rgba(255, 255, 255, 0) 40%),
+              #ffffff;
+}
+
+/* Modales */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+}
+
+.modal-overlay.active .modal-card {
+  transform: scale(1);
+}
+
+/* Toast de notificación */
+#toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toast {
+  padding: 0.85rem 1.25rem;
+  border-radius: 0.75rem;
+  background: #1e293b;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.25s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}

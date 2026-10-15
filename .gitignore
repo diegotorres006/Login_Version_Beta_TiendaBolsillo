@@ -1,0 +1,10 @@
+# Ignorar archivos no relacionados con Tienda Bolsillo Web
+CV_*
+generate_*
+create_proposal*
+create_web_planning*
+PROPUESTA_*
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
